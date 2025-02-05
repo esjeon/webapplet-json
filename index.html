@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <script src="./src/main.ts" type="module" defer></script>
+
+    <title>JSON viewer</title>
+
+    <style>
+      :root {
+        color-scheme: light dark;
+
+        --color: light-dark(black, white);
+        --key-bg: light-dark(#f3f3f3, #292929);
+        --value-bg: light-dark(#ffffff, #121212);
+
+        --hover-color: light-dark(black, white);
+        --key-hover-bg: light-dark(#ccdbff, #0f52ae);
+        --value-hover-bg: light-dark(#e7eeff, #0d47a1);
+      }
+
+      html, body {
+        margin: 0; padding: 0;
+
+        font-family: system-ui;
+        color: var(--color);
+      }
+
+      .json-grid {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        overflow: hidden;
+      }
+      .json-grid>div { border-bottom: 1px solid #666; }
+      .json-grid>div:nth-last-child(-n+2) { border: none; }
+
+      .json-key {
+        padding: 0.5rem;
+
+        font-weight: bold;
+        background-color: var(--key-bg);
+      }
+      .json-key:hover,
+      .json-key:has(+ div:hover)  {
+        color: var(--hover-color);
+        background-color: var(--key-hover-bg);
+      }
+
+      .json-value {
+        background-color: var(--value-bg);
+      }
+      .json-value:hover,
+      .json-key:hover + .json-value {
+        background-color: var(--value-hover-bg);
+      }
+
+      .json-value-literal {
+        padding: 0.5rem;
+        padding-right: 0;
+
+        background-color: var(--value-bg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main></main>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "json",
+  "description": "A simple JSON viewer",
+  "icons": [
+    {
+      "src": "icon-128x128.png"
+    }
+  ],
+  "actions": [
+    {
+      "id": "render",
+      "description": "Render the given object",
+      "parameters": {
+        "type": "object"
+      }
+    }
+  ]
+}
