@@ -2,16 +2,20 @@ import { applets } from '@web-applets/sdk';
 
 const context = applets.getContext();
 
-context.setActionHandler('render', ({ json }) => {
+context.setActionHandler('render', ({ json, comment }) => {
   context.data = {
     object: JSON.parse(json),
+    comment: comment,
   };
 });
 
 context.ondata = () => {
-  const root = document.querySelector('main');
-  root.innerHTML = '';
-  root.appendChild(renderJson(context.data.object));
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+  main.appendChild(renderJson(context.data.object));
+
+  const footer = document.querySelector('footer');
+  footer.textContent = context.data.comment;
 };
 
 function renderJson(obj) {

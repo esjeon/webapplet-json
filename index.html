@@ -28,6 +28,22 @@
         color: var(--color);
       }
 
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        border-bottom: 1px solid black;
+      }
+
+      footer {
+        padding: 0.5rem;
+
+        font-size: 0.9rem;
+        background-color: var(--key-bg);
+      }
+
       .json-grid {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
@@ -67,5 +83,6 @@
 
   <body>
     <main></main>
+    <footer></footer>
   </body>
 </html>

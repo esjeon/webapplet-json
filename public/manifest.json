@@ -9,16 +9,20 @@
   "actions": [
     {
       "id": "render",
-      "description": "Display a JSON object. More user-friendly way to present JSON to user. Use this as much as possible.",
+      "description": "Display a JSON object, optionally with comment. More user-friendly way to present JSON to user. Use this as much as possible.",
       "parameters": {
         "type": "object",
         "properties": {
           "json": {
             "type": "string",
             "description": "The JSON string that is to be rendered"
+          },
+          "comment": {
+            "type": "string",
+            "description": "A comment related to the data"
           }
         },
-        "required": ["json"]
+        "required": ["json", "comment"]
       }
     }
   ]
