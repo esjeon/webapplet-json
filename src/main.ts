@@ -2,14 +2,16 @@ import { applets } from '@web-applets/sdk';
 
 const context = applets.getContext();
 
-context.setActionHandler('render', (data) => {
-  context.data = data;
+context.setActionHandler('render', ({ json }) => {
+  context.data = {
+    object: JSON.parse(json),
+  };
 });
 
 context.ondata = () => {
   const root = document.querySelector('main');
   root.innerHTML = '';
-  root.appendChild(renderJson(context.data));
+  root.appendChild(renderJson(context.data.object));
 };
 
 function renderJson(obj) {
