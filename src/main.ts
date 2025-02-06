@@ -23,12 +23,14 @@ function renderJson(obj) {
   const container = document.createElement("div");
   container.className = "json-grid";
 
+  const isArray = Array.isArray(obj);
+
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       // Create the key element
       const keyDiv = document.createElement("div");
       keyDiv.className = "json-key";
-      keyDiv.textContent = key;
+      keyDiv.textContent = (isArray) ? `[${key}]` : key;
 
       // Create the value element
       const valueDiv = document.createElement("div");
